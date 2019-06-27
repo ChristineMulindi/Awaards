@@ -91,5 +91,11 @@ class ContentRating(models.Model):
     post = models.ForeignKey(Project)
     user_name = models.ForeignKey(User)
     rating = models.IntegerField(choices=RATING_CHOICES, null=True)
- 
-        
+
+
+class Votes(models.Model):
+    post = models.ForeignKey('Project', null=True)
+    user = models.ForeignKey(User)
+    profile = models.ForeignKey(Profile)
+    count  = models.IntegerField()
+   
