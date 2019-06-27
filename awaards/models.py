@@ -36,3 +36,7 @@ class Project(models.Model):
     designer = models.CharField(max_length=300)
     screenshot = models.ImageField(upload_to='images/', null=True)
     user = models.ForeignKey(User, null=True)
+    user_profile=models.ForeignKey(Profile, null=True)
+
+
+
