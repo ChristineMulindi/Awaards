@@ -38,6 +38,36 @@ class Project(models.Model):
     user = models.ForeignKey(User, null=True)
     user_profile=models.ForeignKey(Profile, null=True)
 
+    def __str__(self):
+        return self.site_name
+
+    def save_project(self):
+        self.save()
+
+    def delete_project(self):
+        self.save()
+
+    @classmethod
+    def retrieve_all(cls):
+        all_objects = Project.objects.all()
+        for item in all_objects:
+            return item
+
+    @classmethod
+    def get_project_by_id(cls,id):
+        project_result = cls.objects.get(id=id)
+        return project_result
+
+    @classmethod
+    def update_project(cls,current_value,new_value):
+        fetched_object = cls.objects.filter(designer=current_value).update(designer=new_value)
+        return fetched_object     
+    
+    @classmethod
+    def search_by_site(cls,search_term):
+        search_result = cls.objects.filter(site_name__icontains=search_term)
+        return search_result
+        
 
 class DesignRating(models.Model):
     RATING_CHOICES = (
