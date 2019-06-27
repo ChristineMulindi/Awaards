@@ -39,4 +39,19 @@ class Project(models.Model):
     user_profile=models.ForeignKey(Profile, null=True)
 
 
-
+class DesignRating(models.Model):
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6,'6'),
+        (7,'7'),
+        (8,'8'),
+        (9,'9'),
+        (10,'10')
+    )
+    post = models.ForeignKey(Project)
+    user_name = models.ForeignKey(User)
+    rating = models.IntegerField(choices=RATING_CHOICES, null=True)
