@@ -5,6 +5,7 @@ class Profile(models.Model):
     
     profile_pic = models.ImageField(upload_to = 'images/',default='images/default.jpg')
     bio = models.TextField()
+    contact = models.TextField()
     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
 
     def __str__(self):
