@@ -43,3 +43,21 @@ def update_profile(request,id):
         form = ProfileForm()
     return render(request, 'update_profile.html', {"user": user, "form": form})  
 
+
+
+def search_by_site(request):
+    project = Project.objects.all
+    print(project)
+    if 'site_name' in request.GET and request.GET["site_name"]:
+        search_term = request.GET.get("site_name")
+        print(search_term)
+        searched_projects= Project.objects.filter(site_name__icontains=search_term)
+        print(searched_projects)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"site_name": searched_projects,"project":project})
+
+    else:
+        message = "You haven't searched for any project"
+        return render(request, 'search.html',{"message":message})
+
