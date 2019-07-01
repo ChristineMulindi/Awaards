@@ -70,7 +70,7 @@ class Project(models.Model):
         return search_result
         
 
-class DesignRating(models.Model):
+class Rating(models.Model):
     RATING_CHOICES = (
         (1, '1'),
         (2, '2'),
@@ -83,46 +83,22 @@ class DesignRating(models.Model):
         (9,'9'),
         (10,'10')
     )
-    post = models.ForeignKey(Project)
-    user_name = models.ForeignKey(User)
-    rating = models.IntegerField(choices=RATING_CHOICES, null=True)
+    project = models.ForeignKey(Project)
+    pub_date = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User)
+    usability_rating = models.IntegerField(default=0, choices=RATING_CHOICES, null=True)
+    design_rating = models.IntegerField(default=0, choices=RATING_CHOICES, null=True)
+    content_rating = models.IntegerField(default=0, choices=RATING_CHOICES, null=True)
+    review = models.CharField(max_length=300)
 
+    def __str__(self):
+        return self.review
 
-class UsabilityRating(models.Model):
-    RATING_CHOICES = (
-        (1, '1'),
-        (2, '2'),
-        (3, '3'),
-        (4, '4'),
-        (5, '5'),
-        (6,'6'),
-        (7,'7'),
-        (8,'8'),
-        (9,'9'),
-        (10,'10')
-    )
-    post = models.ForeignKey(Project)
-    user_name = models.ForeignKey(User)
-    rating = models.IntegerField(choices=RATING_CHOICES, null=True)
-    
+    def save_rating(self):
+        self.save()
 
-class ContentRating(models.Model):
-    RATING_CHOICES = (
-        (1, '1'),
-        (2, '2'),
-        (3, '3'),
-        (4, '4'),
-        (5, '5'),
-        (6,'6'),
-        (7,'7'),
-        (8,'8'),
-        (9,'9'),
-        (10,'10')
-    )
-    post = models.ForeignKey(Project)
-    user_name = models.ForeignKey(User)
-    rating = models.IntegerField(choices=RATING_CHOICES, null=True)
-
+    def delete_rating(self):
+        self.save()
 
 class Votes(models.Model):
     post = models.ForeignKey('Project', null=True)

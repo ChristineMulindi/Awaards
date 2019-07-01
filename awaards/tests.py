@@ -7,7 +7,7 @@ class Awards_TestCases(TestCase):
     def setUp(self):
         self.user1= User(id=1,username='Christine',email='mulindichristine@gmail.com',password='1234')
         self.user1.save()
-        self.profile = Profile(user_id=1,bio='I love food',profile_pic='images/default.jpg')
+        self.profile = Profile(user_id=1,bio='I love food',profile_pic='images/default.jpg',contact='123456789')
         self.profile.save_profile()
         self.new_project = Project(id=1,site_name='eazy breezy', url='https://christinemulinndi.com', description='all about Christine', designer='Christine', screenshot='images/christine-3134828_1920.jpg')
         self.new_project.save_project()
