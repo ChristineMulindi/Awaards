@@ -1,0 +1,101 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+
+{%block content%}
+<div class="container">
+
+    <body>
+        
+        <br>
+        <br>
+        
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-xs-12">
+
+                <h2
+                    style="display:block; font-family: apercu,sans-serif; text-align: center; font-style: bold; font-weight: 800; font-size: 38px;">
+                    SUBMIT YOUR SITE
+                </h2>
+                <br>
+                <h3
+                    style="text-align: center; font-weight: 300; font-size: 19px; margin-bottom: 25px; line-height: 170%; box-sizing: inherit; font-family: apercu,sans-serif; ">
+                    Every month, more than 2,000,000 unique users who specialize in web design, development and
+                    the latest web
+                    technologies, visit our site looking for inspiration, trends and talent on the web.
+                </h3>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-5.5 col-md-5 col-xs-5">
+
+                <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <div style="text-align: center;" class="card-body">
+
+                        <p
+                            style="text-align: center; font-size: 18px; font-weight: bold; font-family: apercu,sans-serif;">
+                            SUBMISSION</p>
+
+                        <br>
+                        <br>
+                        
+                                <a href="{% url 'post_project' request.user.id %}"><button type="button "
+                                        class="btn btn-primary btn-lg"
+                                        style="height:50px; width: 120px; background-color:#D81B60; text-transform: uppercase; position: relative; display: inline-block; text-align: center; font-size: 13px; font-weight: 300; border: none; font-family: sans-serif; ">SUBMIT
+                                        NOW!</button></a>
+                           
+                        <br>
+                        <br>
+                        <p
+                            style="text-align: center; margin-bottom: 25px; line-height: 170%; display: block; font-family: sans-serif; font-size: 14px; font-weight: 300; ">
+                            Your website will be reviewed and voted on by our international jury, made up of some of the
+                            best designers,
+                            developers and agencies worldwide.
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-1 col-md-2 col-xs-2"></div>
+
+            <div class="col-sm-5.5 col-md-5 col-xs-5">
+                <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <div style="text-align:center;" class="card-body">
+
+                        <p
+                            style="text-align: center; font-size: 18px; font-weight: bold; font-family: apercu,sans-serif;">
+                            PROFESSIONAL
+                        </p>
+
+                        <br>
+                        <br>
+                        <a href="{% url 'post_project' request.user.id %}"><button type="button " class="btn btn-primary btn-lg"
+                                style="height:50px; width: 120px;background-color:#D81B60; text-transform: uppercase;
+                                position: relative; display: inline-block; text-align: center; font-size: 13px;
+                                font-weight: 300; border: none; font-family: sans-serif; ">SUBMIT
+                                NOW!</button>
+                        </a>
+                        <br>
+                        <br>
+                        <p
+                            style="text-align: center; margin-bottom: 25px; line-height: 170%; display: block; font-family: sans-serif; font-size: 14px; font-weight: 300; ">
+                            Aimed at round-the-clock professionals with multiple projects to submit throughout the
+                            course of
+                            the year.
+                        </p>
+                        <br>
+
+                    </div>
+
+                </div>
+            </div>
+
+    </body>
+</div>
+
+
+
+{%endblock%}

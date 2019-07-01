@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Submission</title>
+    {{form.media}}
+
+
+</head>
+<br>
+<br>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-1 col-md-2 col-xs-1"></div>
+            <div class="col-sm-9 col-md-8 col-xs-10">
+                <div class="card-body shadow p-3 mb-5 bg-white rounded" style=" background-color: white;">
+                    <h3 style="font-style: italic; font-weight: bold; font-size: 25px;" class="text-center">Submission
+                    </h3>
+                    <hr>
+                    <br>
+                    <br>
+                    <form action="{%url 'post_project' user.id%}" method="post" enctype="multipart/form-data"
+                        style=" background-color: white;">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <br>
+                        <br>
+                        <div style="text-align: center;" class="form-group">
+                            <button class="btn btn-primary btn-lg" style="height:50px; width: 120px;background-color:#D81B60; text-transform: uppercase;
+                                position: relative; display: inline-block; text-align: center; font-size: 13px;
+                                font-weight: 300; border: none; font-family: sans-serif; "
+                                type="submit">submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-1 col-md-2 col-xs-1"></div>
+            </div>
+
+        </div>
+    </div>
+
+    {%endblock%}
+</body>

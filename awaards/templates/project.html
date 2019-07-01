@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+
+<div clas="container">
+<br>
+    <br>
+    <div class="row">
+        {% for project in projects %}
+
+        <div class="col-sm-4 col-md-4 col-xs-4 ">
+            <div style="height: 104.67%; width:104.67%;" class="card ">
+                <a href="{%url 'project' project.id %}"><img src="{{project.screenshot.url}}"
+                        class="img-thumbnail shadow p-3 mb-5 bg-white rounded"
+                    style="height: 400px !important" alt=""></a>
+
+                <p>Sitename: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{project.site_name}}</b></p>
+                <p>Designer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{project.designer}}</b></p>
+                <p>Description: &nbsp; <b>{{project.description}}</b></p>
+                <p>URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><a
+                            style="text-decoration: none; color:#D81B60;" href="{{image.url}}">View
+                            Site</a></b></p>
+        
+            </div>
+        </div>
+        <br>
+ <br>
+ <br>
+        {%endfor%}
+    </div>
+    <br>
+</div>
+{%endblock%}

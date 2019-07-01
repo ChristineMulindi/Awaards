@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load mathfilters %}
+{% block content %}
+
+<div class="container">
+    <br>
+    <br>
+   
+    <div class="row">
+
+
+        <div class="col-sm-2 col-md-2 col-xs-1"></div>
+
+        <div class="col-sm-8 col-md-8 col-xs-10">
+            <div class="card-group">
+
+                <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <img class="card-img-top" style="height: 500px !important" src="{{project.screenshot.url}}" alt="">
+                    <div class="card-body">
+                        <p>Sitename: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{project.site_name}}</b></p>
+                        <p>Designer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{project.designer}}</b></p>
+                        <p>Description: &nbsp; <b>{{project.description}}</b></p>
+                        <p>URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><a
+                                    style="text-decoration: none; color:#D81B60;" href="{{image.url}}">View
+                                    Site</a></b></p>
+                        <br>
+                        <div style="text-align: center;" class="button">
+                            <a href="{% url 'rating' user.id %}"><button type="button "
+                                    class="btn btn-primary btn-lg btn-block"
+                                    style=" background-color:#D81B60; text-transform: uppercase; position: relative; display: inline-block; text-align: center; font-size: 13px; font-weight: 300; border: none; font-family: sans-serif; ">VOTE</button>
+                            </a>
+
+                            <br>
+                            <hr>
+                          
+                            {% for project in projects %}
+                            <div class=votes>
+                                <p style="text-align:center;">VOTES</p>
+                                <hr>
+
+                                <ul class="list-group shadow p-3 mb-5 bg-white rounded ">
+                                    <p>
+                                        <li class="list-group-item"><img class="img-responsive "
+                                                src="{{rating.user.profile.profile_pic.url}}"
+                                                style="width:50px;height:50px;border-radius: 100px;"><b>&nbsp;{{rating.user.username}}</b>
+                                        </li>
+                                    </p>
+
+                                    <h6>
+                                        <li class="list-group-item">
+                                            Usability</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{rating.usability_rating}}</b>
+                                        </li>
+                                    </h6>
+
+
+                                    <h6>
+                                        <li class="list-group-item">
+                                            <i>Design</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{rating.design_rating}}</b>
+                                        </li>
+                                    </h6>
+
+
+                                    <h6>
+                                        <li class="list-group-item">
+                                            <i>Content</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{rating.content_rating}}</b>
+                                        </li>
+                                    </h6>
+
+
+                                    <h6>
+                                        <li class="list-group-item">Average</i>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+                                                {{ rating.content_rating | add:rating.design_rating |add:rating.usability_rating|div:3|floatformat}}
+                                            </b>
+                                        </li>
+                                    </h6>
+                                </ul>
+
+                            </div>
+                            {% endfor %}
+
+                            <hr>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-xs-1"></div>
+
+
+            <br>
+            <br>
+
+
+        </div>
+
+
+
+    </div>
+    
+  
+    {% endblock %}
+</div>
