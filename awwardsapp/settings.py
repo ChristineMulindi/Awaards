@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'awaards',
     'bootstrap4',
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'mathfilters'
 
 ]
 
