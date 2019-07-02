@@ -75,7 +75,7 @@ def post_project(request,id):
         if form.is_valid():
             project = form.save(commit=False)
             project.user=current_user
-            project.user_profile = Profile.objects,get(user_id=id)
+            project.user_profile = Profile.objects.get(user_id=id)
             project.save()
         return redirect(home)
 
@@ -96,7 +96,6 @@ def main(request,id):
 def project(request,id):
     current_user = request.user 
     current_project = Project.objects.get(id=id)
-    print(current_project)
     ratings = Rating.objects.filter(project_id=id)
     return render(request, 'main.html', {"user": current_user, "project": current_project, "ratings":ratings}) 
 
@@ -108,16 +107,13 @@ def rating(request,id):
     current_project = Project.objects.get(id=id)
     print(current_project)
     if request.method == 'POST':
-        form = RatingForm(request.POST,request.FILES)
+        form = RatingForm(request.POST)
         if form.is_valid():
             rating = form.save(commit=False)
-            print(rating)
             rating.user = current_user
-            print(rating.user)
             rating.project=current_project
-
             rating.save()
-        return redirect(project,id)
+        return redirect('project',id)
 
     else:
         form = RatingForm()
