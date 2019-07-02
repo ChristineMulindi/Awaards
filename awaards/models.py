@@ -90,6 +90,8 @@ class Rating(models.Model):
     design_rating = models.IntegerField(default=0, choices=RATING_CHOICES, null=True)
     content_rating = models.IntegerField(default=0, choices=RATING_CHOICES, null=True)
     review = models.CharField(max_length=300)
+   
+
 
     def __str__(self):
         return self.review
