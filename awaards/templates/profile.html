@@ -46,11 +46,13 @@
             <div class="card-group">
 
                 <div class="card shadow p-3 mb-5 bg-white rounded">
-                    <img class="card-img-top" style="height: 500px !important" src="{{image.screenshot.url}}" alt="">
+                    <a href="{%url 'project' image.id %}"><img class="card-img-top" style="height: 500px !important"
+                            src="{{image.screenshot.url}}" alt=""></a>
                     <div class="card-body">
-                        <p>Sitename:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{image.site_name}}</b></p>
-                        <p>Description:&nbsp;&nbsp;<b>{{image.description}}</b></p>
-                        <p>URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><a
+                        <p>Sitename:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{image.site_name}}</b></p>
+                        <p>Description:&nbsp;&nbsp;&nbsp;<b>{{image.description}}</b></p>
+                        <p>Technology: &nbsp; <b>{{image.technologies}}</b></p>
+                        <p>URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><a
                                     style="text-decoration: none; color:#D81B60;"
                                     href="{{image.url}}">View
                                     Site</a></b></p>

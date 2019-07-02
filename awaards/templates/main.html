@@ -10,9 +10,9 @@
     <div class="row">
 
 
-        <div class="col-sm-2 col-md-2 col-xs-1"></div>
+        <div class="col-sm-1 col-md-1 col-xs-1"></div>
 
-        <div class="col-sm-8 col-md-8 col-xs-10">
+        <div class="col-sm-10 col-md-10 col-xs-10">
             <div class="card-group">
 
                 <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -21,25 +21,30 @@
                         <p>Sitename: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{project.site_name}}</b></p>
                         <p>Designer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{project.designer}}</b></p>
                         <p>Description: &nbsp; <b>{{project.description}}</b></p>
+                        <p>Technology: &nbsp; <b>{{project.technologies}}</b></p>
                         <p>URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><a
-                                    style="text-decoration: none; color:#D81B60;" href="{{image.url}}">View
+                                    style="text-decoration: none; color:#D81B60;" href="{{project.url}}">View
                                     Site</a></b></p>
                         <br>
                         <div style="text-align: center;" class="button">
-                            <a href="{% url 'rating' user.id %}"><button type="button "
+                            <a href="{% url 'rating' project.id %}"><button type="button "
                                     class="btn btn-primary btn-lg btn-block"
                                     style=" background-color:#D81B60; text-transform: uppercase; position: relative; display: inline-block; text-align: center; font-size: 13px; font-weight: 300; border: none; font-family: sans-serif; ">VOTE</button>
                             </a>
 
                             <br>
+                            <br>
+                            <br>
                             <hr>
                           
-                            {% for project in projects %}
+                            {% for rating in ratings %}
                             <div class=votes>
+                                
                                 <p style="text-align:center;">VOTES</p>
                                 <hr>
-
-                                <ul class="list-group shadow p-3 mb-5 bg-white rounded ">
+<br>
+<br>
+                                <ul class="list-group  ">
                                     <p>
                                         <li class="list-group-item"><img class="img-responsive "
                                                 src="{{rating.user.profile.profile_pic.url}}"
@@ -79,7 +84,7 @@
                             </div>
                             {% endfor %}
 
-                            <hr>
+                            
                         </div>
 
                     </div>
@@ -88,7 +93,7 @@
 
             </div>
 
-            <div class="col-sm-2 col-md-2 col-xs-1"></div>
+            <div class="col-sm-1 col-md-1 col-xs-1"></div>
 
 
             <br>
